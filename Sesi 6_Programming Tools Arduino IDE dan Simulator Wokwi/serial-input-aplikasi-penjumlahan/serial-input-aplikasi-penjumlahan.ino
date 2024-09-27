@@ -20,7 +20,7 @@ void setup() {
   Serial.begin(115200);
   
   // Menampilkan pesan permintaan input pertama
-  Serial.println("Input A:");
+  Serial.print("Input A:");
 }
 
 void loop() {
@@ -33,12 +33,14 @@ void loop() {
     // Jika Input A belum diterima, simpan data tersebut sebagai A
     if (!inputA_status) {
       A = input.toInt();  // Mengonversi input string menjadi integer
+      Serial.println(A);  // Menampilkan nilai input A
       inputA_status = true;  // Tandai bahwa nilai input A sudah diterima
-      Serial.println("Input B:");  // Minta input B
+      Serial.print("Input B:");  // Minta input B
     }
     // Jika Input A sudah diterima dan Input B belum diterima
     else if (inputA_status && !inputB_status) {
       B = input.toInt();  // Mengonversi input string menjadi integer
+      Serial.println(B);  // Menampilkan nilai input B
       inputB_status = true;  // Tandai bahwa nilai input B sudah diterima
     }
     
@@ -51,7 +53,7 @@ void loop() {
       // Reset untuk menerima input baru
       inputA_status = false;
       inputB_status = false;
-      Serial.println("Input A:");  // Minta input baru untuk A
+      Serial.print("Input A:");  // Minta input baru untuk A
     }
   }
 }
